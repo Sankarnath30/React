@@ -132,6 +132,7 @@ const Tablee = () => {
         first_Name: row.first_Name,
         last_Name: row.last_Name,
         employee_Type_Id: row.employee_Type_Name,
+        employee_code: row.employee_code,
         joining_Date: row.joining_Date,
         end_Date: row.end_Date,
         designation_Id: row.designation_Name,
@@ -169,6 +170,7 @@ const Tablee = () => {
         employee_Type_Id: editEmployee_Type_Id,
         designation_Id: editDesignation,
         email: e.email,
+        employee_code: e.employee_code,
         contact_No: e.contact_No,
         alternate_Email: e.alternate_Email,
         joining_Date: e.joining_Date,
@@ -979,6 +981,10 @@ const Tablee = () => {
                     <p style={{ fontWeight: "bold", marginLeft: 10 }}>Contact No<span style={{ color: "red" }}>*</span></p>
                   </Col>
                   <Col span={1}></Col>
+                  <Col span={5}>
+                    <p style={{ fontWeight: "bold", marginLeft: 10 }}>employee_code<span style={{ color: "red" }}>*</span></p>
+                  </Col>
+                  <Col span={1}></Col>
                 </Row>
                 <Row>
                   <Col span={5}>
@@ -1027,7 +1033,19 @@ const Tablee = () => {
                     >
                       <Input maxLength={10} />
                     </Form.Item>
-                  </Col>
+                  </Col><Col span={1}></Col>
+                  <Col span={5}>
+                    <Form.Item name="employee_code" rules={[{ required: true, message: 'Please enter the Name' }, {
+                      pattern: new RegExp(/^[a-z A-Z]+$/i),
+                      message: "It does not accept numbers and special characters"
+                    }]}>
+                      <Input type='text' id='employee_code' value={employee_code}
+                        onChange={(e) => setemployee_code(e.target.value)}
+                      />
+                    </Form.Item>
+                  </Col><Col span={1}></Col>
+
+
                 </Row>
                 <div style={{ marginTop: 20 }}>
                   <Link state={{ id: editEmployee_Id, editEmployee_Name: fullName }} to="/employee/Previouschange" ><h2 style={{ color: "blue" }}><u>View Previous Changes</u></h2></Link>
@@ -1038,6 +1056,19 @@ const Tablee = () => {
                     <Button type="success" htmlType="submit">Save Changes</Button></Space>
                 </Form.Item>
               </Form>
+
+
+              {/* <Form.Item name="employee_code" rules={[{ required: true, message: 'Please enter the Name' }, {
+                pattern: new RegExp(/^[a-z A-Z]+$/i),
+                message: "It does not accept numbers and special characters"
+              }]}>
+                <Input type='text' id='employee_code' value={employee_code}
+                  onChange={(e) => setemployee_code(e.target.value)}
+                />
+              </Form.Item> */}
+
+
+
 
             </Modal>
 

@@ -438,8 +438,8 @@ function ReadProject() {
                 project_Code: e.project_Code,
                 client_Id: e.client_Id,
                 is_Active: true,
-                //start_Date: Date(startValue),
-                end_Date: endValue
+                start_Date: Date(startValue),
+                
             }
         }).then(r => {
             debugger;

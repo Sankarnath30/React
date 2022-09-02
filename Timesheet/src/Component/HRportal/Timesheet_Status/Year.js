@@ -25,7 +25,8 @@ function Tb1() {
     },
     {
       title: 'Year',
-      render: (data) => (<Link state={{ year: data.year }} to="/timesheet/month" >{data.year}</Link>)
+       render: (data) => (<Link state={{ year: data.year }} to="/timesheet/month" >{data.year}</Link>)
+      // dataIndex:'year'
     }
   ];
   return (
@@ -50,7 +51,10 @@ function Tb1() {
             pagefixed
             bordered
             pagination={false}
-            rowKey={record => record.year}
+            rowSelection={{
+              
+            }}
+            // rowKey={record => record.year}
             columns={columns}
             dataSource={dataSource}
           >
